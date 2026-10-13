@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>اولین برنامک من</title>
+    <script src="https://developer.eitaa.com/eitaa-web-app.js"></script>
+    <style>
+        body {
+            font-family: Tahoma, sans-serif;
+            padding: 20px;
+            text-align: center;
+            background: #f5f5f5;
+        }
+        h1 { color: #f26522; }
+        button {
+            background: #f26522;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 16px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>سلام 👋</h1>
+    <p id="user-info">در حال دریافت اطلاعات...</p>
+    <button onclick="alert('سلام! این اولین برنامک منه')">
+        روی من بزن
+    </button>
+
+    <script>
+        if (window.Eitaa && window.Eitaa.WebApp) {
+            const user = window.Eitaa.WebApp.initDataUnsafe?.user;
+            document.getElementById("user-info").textContent =
+                user ? `خوش آمدی ${user.first_name}!` : "کاربر مهمان";
+        } else {
+            document.getElementById("user-info").textContent =
+                "این صفحه در مرورگر عادی اجرا می‌شود";
+        }
+    </script>
+</body>
+</html>
